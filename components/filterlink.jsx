@@ -1,10 +1,8 @@
 import React from 'react'
 
 const FilterLink = ({filter,currentFilter, onClick, children}) => (
-	<a href='#' className = {
-		filter === currentFilter? 'todo-filterlink todo-filterlink-already' : 'todo-filterlink'
-	} onClick={e => {
-		filter !== currentFilter ? onClick(filter) : false;
+	<a href='#' onClick={e => {
+		onClick(filter);
 		e.preventDefault();		
 	}} >
 	{children}

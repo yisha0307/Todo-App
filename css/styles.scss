@@ -1,0 +1,103 @@
+@import url('//fonts.googleapis.com/css?family=Barrio');
+
+$bg-green: #2fbbc3;
+$shining: #fff;
+$pearl-blue: #dcf3f5;
+$yellow-dark:#ffa500;
+$yellow-light: #ffdb99;
+
+*{
+	box-sizing: border-box;
+}
+
+html,body{
+	min-height: 100%;
+	background-color: $bg-green;
+}
+
+.todoapp{
+	position: absolute;
+	left:50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	height: 70%;
+	width:30%;
+	background-color: #fff;
+	border-radius:3px;
+	box-shadow: 0 0 20px $shining;
+	>h1{
+		font-family: 'Barrio', cursive;
+		text-align: center;
+		font-weight: 400;
+		margin: 30px auto;
+	}
+	>.todo-lists{
+		min-height:50%;
+		>li{
+			font-size: 20px;
+			margin-top:10px;
+			margin-left: 20px;
+		}
+		.todo-todo-completed{
+				text-decoration: line-through;
+				color: grey;
+			}
+	}
+	>.todo-addtodo{
+		margin: 10px 40px;
+		>input{
+			background-color: $pearl-blue;
+			height: 40px;
+			font-size: 20px;
+			width:90%;
+			border-style: none;
+			outline: 0;
+			border-radius: 2px;
+			&:focus{
+				background:none;
+				border: 2px solid $pearl-blue;
+			}
+		}
+		>button{
+			margin-left: -30px;
+			background-color: $yellow-dark;
+			color: $yellow-light;
+			width:60px;
+			height: 60px;
+			border-radius:50%;
+			line-height: 60px;
+			border-style: none;
+			font-size: 20px;
+			outline: 0;
+			cursor:pointer;
+			&:active{
+				background-color: $yellow-light;
+				color:$yellow-dark;
+			}
+			&:hover{
+				transform: scale(1.1);
+			}
+		}
+	}
+	>.todo-footer{
+		text-align: center;
+		margin-top:20px;
+		width: 100%;
+		font-size:20px;
+		>a{
+			margin:40px;
+			color:#d03333;
+			&:first-child{
+				color:#0ebeff;
+			}
+			&:last-child{
+				color:#93b173;
+			}
+			>i{
+			&:hover{
+				transform: scale(1.2);
+			}
+		}
+		}
+	}
+}

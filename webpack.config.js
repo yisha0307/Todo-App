@@ -26,7 +26,11 @@ plugins: [
 ],
 module: {
     loaders: [
-   {
+    {
+        test: /\.scss$/,
+        loaders: ['style-loader','css-loader','sass-loader'],
+        exclude: /node_modules/
+    },{
         test: /\.jsx$/,
         loader:'babel-loader',
         exclude: /node_modules/
@@ -34,7 +38,13 @@ module: {
         test: /\.js$/,
         loader:'babel-loader',
         exclude: /node_modules/
-    }]
+    },{
+      test: /\.css$/,
+      loader: 'style-loader!css-loader?sourceMap'
+    },{
+        test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
+        loader: 'url-loader'
+      }]
 },
 resolve:{
         extensions: ['.js', '.jsx']

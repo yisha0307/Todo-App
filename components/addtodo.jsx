@@ -15,7 +15,7 @@ class AddTodo extends React.Component{
 		<div className = 'todo-addtodo'>
 		<input type ='text' ref ={v => this.input =v} />
 		<button onClick ={() => this.handleref()}>
-		{'+'}
+		<i className='fa fa-plus'/>
 		</button>
 		</div>);
 }

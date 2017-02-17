@@ -7,6 +7,8 @@ import TodoList from './components/todolist.jsx'
 import AddTodo from './components/addtodo.jsx'
 import Footer from './components/footer.jsx'
 
+import './css/styles.scss'
+
 let nextTodoId = 0; 
 class TodoApp extends React.Component{
 	render(){
@@ -26,7 +28,7 @@ function select(todos,filter){
 		case 'SHOW_ALL':
 			return todos;
 		case 'SHOW_COMPLETED':
-			return todos.filter(todo => todo.comleted)
+			return todos.filter(todo => todo.completed)
 		case 'SHOW_ACTIVE':
 			return todos.filter(todo => !todo.completed)
 	}
