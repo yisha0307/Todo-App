@@ -45,7 +45,7 @@ html,body{
 	}
 	>.todo-addtodo{
 		margin: 10px 40px;
-		>input{
+		input{
 			background-color: $pearl-blue;
 			height: 40px;
 			font-size: 20px;
@@ -58,7 +58,7 @@ html,body{
 				border: 2px solid $pearl-blue;
 			}
 		}
-		>button{
+		button{
 			margin-left: -30px;
 			background-color: $yellow-dark;
 			color: $yellow-light;

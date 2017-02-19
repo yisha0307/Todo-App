@@ -1,36 +1,24 @@
 import React, {Component} from 'react'
 import todoApp from './reducers.js'
+import {Provider,connect} from 'react-redux'
 import {createStore, subscribe} from 'redux'
 import ReactDOM from 'react-dom'
 
-import TodoList from './components/todolist.jsx'
-import AddTodo from './components/addtodo.jsx'
+import VisibleTodoList from './containers/visibletodolist.jsx'
+import AddTodo from './containers/addtodo.jsx'
 import Footer from './components/footer.jsx'
 
 import './css/styles.scss'
 
-let nextTodoId = 0; 
 class TodoApp extends React.Component{
 	render(){
-		const {visibilityFilter, todos} = this.props;
-		return (
+		return(
 			<div className = 'todoapp'>
-				<h1>Todos</h1>
-				<TodoList todos ={select(todos,visibilityFilter)} handleClick = {id => store.dispatch({type:'TOGGLE_TODO', id})}/>
-				<AddTodo handleClick ={text => store.dispatch({type:'ADD_TODO', id: nextTodoId++, text})}/>
-				<Footer currentFilter ={visibilityFilter} handleClick={filter => store.dispatch({type:'SET_VISIBILITY', filter})}/>
+				<h1>TODOS</h1>
+				<VisibleTodoList />
+				<AddTodo />
+				<Footer />
 			</div>);
-	}
-}
-
-function select(todos,filter){
-	switch(filter){
-		case 'SHOW_ALL':
-			return todos;
-		case 'SHOW_COMPLETED':
-			return todos.filter(todo => todo.completed)
-		case 'SHOW_ACTIVE':
-			return todos.filter(todo => !todo.completed)
 	}
 }
 
@@ -39,9 +27,11 @@ document.body.appendChild(root);
 
 const store = createStore(todoApp);
 const render = () => {
-	ReactDOM.render(<TodoApp {...store.getState()}/>, root);
+	ReactDOM.render(
+		<Provider store = {store}>
+			<TodoApp />
+		</Provider>, root);
 }
 
-store.subscribe(render);
 render();
 

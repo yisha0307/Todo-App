@@ -5,7 +5,7 @@ const APP_PATH = path.resolve(ROOT_PATH, 'components');
 const webpack = require('webpack');
 
 module.exports = {
-    devtool: 'eval-source-map',
+    devtool:'#eval-source-map',
     entry: __dirname + '/index.jsx',
 //webpack的入口文件只有一个，所以写的所有components甚至包括css/json什么的，都要引用在这里
 output:{
@@ -22,13 +22,13 @@ plugins: [
     new HtmlWebpackPlugin({
         title: 'todoList',    //配合html-webpack-plugin的配置
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
 ],
 module: {
     loaders: [
     {
         test: /\.scss$/,
-        loaders: ['style-loader','css-loader','sass-loader'],
+        loaders: ['style-loader', 'css-loader','sass-loader'],
         exclude: /node_modules/
     },{
         test: /\.jsx$/,
@@ -40,7 +40,7 @@ module: {
         exclude: /node_modules/
     },{
       test: /\.css$/,
-      loader: 'style-loader!css-loader?sourceMap'
+      loaders: ['style-loader', 'css-loader?sourceMap'],
     },{
         test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
         loader: 'url-loader'
